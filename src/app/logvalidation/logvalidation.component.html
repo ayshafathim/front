@@ -1,0 +1,69 @@
+
+<body class="img js-fullheight">
+  
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section"><b>LOGIN </b></h2>
+                    <h3>Enter the Credentials</h3>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="login-wrap p-0">
+                  <!-- <h3 class="mb-4 text-center">Have an account?</h3> -->
+                  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate class="d-flex-center">
+                      <div class="form-group">
+                        <mat-form-field>
+                            <input matInput placeholder="Email" formControlName="email">
+                            <mat-error *ngIf="!loginForm.get('email')?.errors?.required && (loginForm.get('email')?.errors?.pattern)">
+                              Please enter a valid email address
+                            </mat-error>
+                            <mat-error *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) && loginForm.get('email')?.errors?.required">
+                              Email is required
+                            </mat-error>
+                          </mat-form-field>
+                      </div>
+                <div class="form-group">
+                    <mat-form-field>
+                        <input matInput type="password" placeholder="Password" formControlName="password">  
+                  <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                  <mat-error *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) && loginForm.get('password')?.errors?.required">
+                    Password is required
+                  </mat-error>
+                </mat-form-field>
+                </div>
+    
+                <div class="form-group">
+                
+                    <select id="role" class="form-control"  required>
+                        <option disabled selected>Role</option>
+                        <option value="admin">User</option>
+                        <option value="user">Admin</option>
+                      </select>
+                  </div>
+    
+                <div class="form-group">
+                    <button  class="form-control btn btn-primary submit px-3" [disabled]="!loginForm.valid" mat-raised-button color="primary" mat-button>Sign In</button>
+                    <!-- <button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button> -->
+                </div>
+                <div class="form-group d-md-flex">
+                    
+                                <!-- <div class="w-50 text-md-right">
+                                    <a href="#" style="color: #fff">Forgot Password?</a>
+                                </div> -->
+                                    <p class="signup here">
+                                        Don't have an account? <a href="#"><b>Signup here</b></a>
+                                      </p>
+                                      
+                </div>
+              </form>
+            </div>
+        </div>
+      </div>
+     </div>
+    </section> 
+    </body>
+    
